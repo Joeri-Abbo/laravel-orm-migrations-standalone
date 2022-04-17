@@ -1,0 +1,27 @@
+{
+    "name": "joeriabbo/orm-migrations-standalone",
+    "description": "Migrations like used in Laravel but stand alone.",
+    "autoload": {
+        "psr-4": {
+            "Joeriabbo\\OrmMigrationsStandalone\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Joeri Abbo",
+            "email": "joeriabbo@hotmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "illuminate/database": "9.*",
+        "robmorgan/phinx": "0.12.*",
+        "vlucas/phpdotenv": "^5.4",
+        "symfony/var-dumper": "^6.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    }
+}
