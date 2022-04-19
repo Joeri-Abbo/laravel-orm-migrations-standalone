@@ -17,7 +17,7 @@
         "illuminate/database": "9.*",
         "robmorgan/phinx": "0.12.*",
         "vlucas/phpdotenv": "^5.4",
-        "symfony/var-dumper": "^6.0"
+        "ext-pdo": "*"
     },
     "config": {
         "allow-plugins": {
