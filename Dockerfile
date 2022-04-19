@@ -26,10 +26,6 @@ RUN apk update
 RUN apk upgrade
 RUN apk add bash
 
-# install xdebug
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
-
 # configure PHP-FPM
 COPY docker/config/fpm-pool.conf /etc/php81/php-fpm.d/www.conf
 COPY docker/config/php.ini /etc/php81/conf.d/docker-php-custom.ini
@@ -39,14 +35,6 @@ COPY docker/config/nginx.conf /etc/nginx/nginx.conf
 
 # configure supervisord
 COPY docker/config/supervisord.conf /etc/supervisord.conf
-
-# configure xdebug
-RUN echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "display_startup_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "display_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "xdebug.idekey=\"PHPSTORM\"" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "xdebug.mode=debug,trace" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # clean up
 RUN apk del pcre-dev ${PHPIZE_DEPS}
@@ -66,9 +54,8 @@ RUN chown -R nobody.nobody /var/www && \
   chown -R nobody.nobody /var/log/nginx && \
   chown -R nobody.nobody /.composer
 
-# for xdebug
-EXPOSE 9003
-
 # for ngix
 EXPOSE 8080
 EXPOSE 8444
+
+RUN composer install --optimize-autoloader --no-interaction
