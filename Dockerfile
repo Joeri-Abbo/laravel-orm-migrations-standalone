@@ -31,14 +31,14 @@ RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 
 # configure PHP-FPM
-COPY config/fpm-pool.conf /etc/php81/php-fpm.d/www.conf
-COPY config/php.ini /etc/php81/conf.d/docker-php-custom.ini
+COPY docker/config/fpm-pool.conf /etc/php81/php-fpm.d/www.conf
+COPY docker/config/php.ini /etc/php81/conf.d/docker-php-custom.ini
 
 # configure nginx
-COPY config/nginx.conf /etc/nginx/nginx.conf
+COPY docker/config/nginx.conf /etc/nginx/nginx.conf
 
 # configure supervisord
-COPY config/supervisord.conf /etc/supervisord.conf
+COPY docker/config/supervisord.conf /etc/supervisord.conf
 
 # configure xdebug
 RUN echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
