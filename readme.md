@@ -30,7 +30,7 @@ https://laravel.com/docs/9.x/migrations#migration-structure
 After you finished editing the file you can run the following command inside the docker container:
 
 ```
-./migrate.sh>
+./migrate.sh
 ```
 
 This will run the migration and save it in the database. If you connected to the database you can see your changes and
