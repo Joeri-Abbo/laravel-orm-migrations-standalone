@@ -77,4 +77,13 @@ class Config
     {
         return $_ENV['DB_PORT'] ?? '3306';
     }
+
+    /**
+     * Get db password
+     * @return string
+     */
+    public function getDataBaseDriver(): string
+    {
+        return $_ENV['DB_DRIVER'] ?? 'mysql';
+    }
 }

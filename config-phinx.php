@@ -14,7 +14,7 @@ return [
         'default_migration_table' => 'phinxlog',
         'default_database' => 'dev',
         'dev' => [
-            'adapter' => 'mysql',
+            'adapter' => $config->getDataBaseDriver(),
             'host' => $config->getDataBaseHost(),
             'name' => $config->getDataBaseName(),
             'user' => $config->getDataBaseUser(),

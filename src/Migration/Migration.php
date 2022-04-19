@@ -20,11 +20,11 @@ class Migration extends AbstractMigration
         $this->config = Config::getInstance();
         $this->capsule = new Capsule;
         $this->capsule->addConnection([
-            'driver' => 'mysql',
+            'driver' => $this->config->getDataBaseDriver(),
             'host' => $this->config->getDataBaseHost(),
             'port' => $this->config->getDataBasePort(),
             'database' => $this->config->getDataBaseName(),
-            'username' => $this->config->getDataBaseName(),
+            'username' => $this->config->getDataBaseUser(),
             'password' => $this->config->getDataBasePassword(),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
