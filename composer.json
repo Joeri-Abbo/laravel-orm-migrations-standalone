@@ -15,7 +15,7 @@
     "require": {
         "slim/slim": "4.*",
         "illuminate/database": "12.*",
-        "robmorgan/phinx": "0.12.*",
+        "robmorgan/phinx": "0.16.*",
         "vlucas/phpdotenv": "^5.4",
         "ext-pdo": "*"
     },
